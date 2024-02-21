@@ -35,6 +35,18 @@ public class Reservation {
         reserved.publishAfterCommit();
     }
 
+    @PrePersist
+    public void onPrePersist(){
+        ecall.external.Parking parking = 
+            ReservationApplication.applicationContext.getBean(ecall.external.ParkingService.class)
+            .getParking(Long.valueOf(getParkingId()));
+
+        if(parking.getParkingSpot() < 1){
+            throw new RuntimeException("No more Space");
+        }
+
+    }
+    
     @PreRemove
     public void onPreRemove() {
         Canceled canceled = new Canceled(this);

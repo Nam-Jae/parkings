@@ -31,48 +31,22 @@ public class Parking {
 
     //<<< Clean Arch / Port Method
     public static void decreaseParkingSpot(Reserved reserved) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Parking parking = new Parking();
-        repository().save(parking);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(reserved.get???()).ifPresent(parking->{
+        repository().findById(Long.valueOf(reserved.getParkingId())).ifPresent(parking->{
             
-            parking // do something
+            parking.setParkingSpot(parking.getParkingSpot() - 1); 
             repository().save(parking);
-
-
          });
-        */
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void increaseParkingSpot(Canceled canceled) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Parking parking = new Parking();
-        repository().save(parking);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(canceled.get???()).ifPresent(parking->{
+        repository().findById(Long.valueOf(canceled.getParkingId())).ifPresent(parking->{
             
-            parking // do something
+            parking.setParkingSpot(parking.getParkingSpot() + 1); 
             repository().save(parking);
-
-
          });
-        */
 
     }
     //>>> Clean Arch / Port Method

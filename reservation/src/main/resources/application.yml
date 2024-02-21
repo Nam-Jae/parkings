@@ -45,6 +45,9 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
+api:
+  url:
+    parking: localhost:8083
 
 server:
   port: 8082
@@ -81,4 +84,6 @@ spring:
           destination: ecall
           contentType: application/json
 
-
+api:
+  url:
+    parking: parking:8080

@@ -21,7 +21,7 @@ public class Coupon {
 
     private String customerId;
 
-    private String reservationId;
+    private Long reservationId;
 
     @PostPersist
     public void onPostPersist() {
@@ -44,25 +44,11 @@ public class Coupon {
 
     //<<< Clean Arch / Port Method
     public static void addCouponList(Reserved reserved) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
         Coupon coupon = new Coupon();
+
+        coupon.setReservationId(reserved.getId());
+        coupon.setCustomerId(reserved.getCustomerId());
         repository().save(coupon);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(reserved.get???()).ifPresent(coupon->{
-            
-            coupon // do something
-            repository().save(coupon);
-
-
-         });
-        */
-
     }
 
     //>>> Clean Arch / Port Method
