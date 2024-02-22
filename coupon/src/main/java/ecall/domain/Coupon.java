@@ -54,25 +54,8 @@ public class Coupon {
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void deleteCouponList(Canceled canceled) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Coupon coupon = new Coupon();
-        repository().save(coupon);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(canceled.get???()).ifPresent(coupon->{
-            
-            coupon // do something
-            repository().save(coupon);
-
-
-         });
-        */
-
+        Retrieved retrieved = new Retrieved();
+        retrieved.publishAfterCommit();
     }
     //>>> Clean Arch / Port Method
 
