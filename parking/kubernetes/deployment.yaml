@@ -1,24 +1,22 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: parking
   labels:
-    app: frontend
+    app: parking
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: parking
   template:
     metadata:
       labels:
-        app: frontend
+        app: parking
     spec:
       containers:
-        - name: frontend
-          image: iure07/frontend:latest
+        - name: parking
+          image: iure07/parking:latest
           ports:
             - containerPort: 8080
           readinessProbe:

@@ -1,24 +1,22 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: coupon
   labels:
-    app: frontend
+    app: coupon
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: coupon
   template:
     metadata:
       labels:
-        app: frontend
+        app: coupon
     spec:
       containers:
-        - name: frontend
-          image: iure07/frontend:latest
+        - name: coupon
+          image: iure07/coupon:latest
           ports:
             - containerPort: 8080
           readinessProbe:

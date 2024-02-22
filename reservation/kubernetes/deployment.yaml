@@ -1,24 +1,22 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: reservation
   labels:
-    app: frontend
+    app: reservation
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: reservation
   template:
     metadata:
       labels:
-        app: frontend
+        app: reservation
     spec:
       containers:
-        - name: frontend
-          image: iure07/frontend:latest
+        - name: reservation
+          image: iure07/reservation:latest
           ports:
             - containerPort: 8080
           readinessProbe:
