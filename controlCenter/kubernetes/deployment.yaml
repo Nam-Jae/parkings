@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controlCenter
+  name: controlcenter
   labels:
-    app: controlCenter
+    app: controlcenter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: controlCenter
+      app: controlcenter
   template:
     metadata:
       labels:
-        app: controlCenter
+        app: controlcenter
     spec:
       containers:
-        - name: controlCenter
-          image: iure07/controlCenter:latest
+        - name: controlcenter
+          image: iure07/controlcenter:latest
           ports:
             - containerPort: 8080
           readinessProbe:
