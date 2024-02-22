@@ -38,16 +38,17 @@ public class CenterViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenReserved_then_UPDATE_1(@Payload Reserved reserved) {
+    public void whenIssued_then_UPDATE_1(@Payload Issued issued) {
         try {
-            if (!reserved.validate()) return;
+            if (!issued.validate()) return;
             // view 객체 조회
 
-            List<Center> centerList = centerRepository.findByCarId(
-                reserved.getCarId()
+            List<Center> centerList = centerRepository.findByReservationId(
+                issued.getReservationId()
             );
             for (Center center : centerList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
+                center.setStatus("Issued");
                 // view 레파지 토리에 save
                 centerRepository.save(center);
             }
